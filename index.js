@@ -21,7 +21,7 @@ module.exports = function(poly, reversed) {
 				cw += (latlngs[i+1][0]-latlngs[i][0])*(latlngs[i+1][1]+latlngs[i][1]);
 			}
 			return cw > 0;
-		}
+		};
 	if (isClockWise(coor[0]) == reversed ) coor[0].reverse();		// outer ring
 	for(var i=1; i< coor.length; i++){
 		if (isClockWise(coor[i]) != reversed ) coor[i].reverse();	// inner rings
