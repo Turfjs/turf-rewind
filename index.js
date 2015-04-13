@@ -5,7 +5,7 @@ var pol = require('turf-polygon');
 * Function that makes outer ring clockwise and inner rings counterclockwise to meet some cases standards
 * Uses [Shoelace Formula]{@link http://en.wikipedia.org/wiki/Shoelace_formula}
 * @param {Feature<(Polygon)>} poly - single Polygon Feature
-* @param {Boolean} reversed - if you want inverse winding
+* @param {Boolean} reversed - if you want reversed winding
 * @return {Feature<(Polygon)>} 
 * @author   Abel Vázquez
 * @version 1.0.0
