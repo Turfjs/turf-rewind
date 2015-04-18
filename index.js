@@ -16,11 +16,7 @@ module.exports = function(poly, reversed) {
 	var 
 		coor = poly.geometry.coordinates.slice(),
 		isClockWise = function(latlngs){
-			var cw = 0;
-			for (var i=0;i<latlngs.length-1;i++){
-				cw += (latlngs[i+1][0]-latlngs[i][0])*(latlngs[i+1][1]+latlngs[i][1]);
-			}
-			return cw > 0;
+			return 0 < latlngs.reduce(function(a,b,c,d){return a + ((c < d.length - 1) ? (d[c+1][0] - b[0]) * (d[c+1][1] + b[1]) : 0)},0);
 		};
 	if (isClockWise(coor[0]) == reversed ) coor[0].reverse();		// outer ring
 	for(var i=1; i< coor.length; i++){
