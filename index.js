@@ -18,9 +18,9 @@ module.exports = function(poly, reversed) {
 		isClockWise = function(latlngs){
 			return 0 < latlngs.reduce(function(a,b,c,d){return a + ((c < d.length - 1) ? (d[c+1][0] - b[0]) * (d[c+1][1] + b[1]) : 0)},0);
 		};
-	if (isClockWise(coor[0]) == reversed ) coor[0].reverse();		// outer ring
+	isClockWise(coor[0]) === reversed && coor[0].reverse();		// outer ring
 	for(var i=1; i< coor.length; i++){
-		if (isClockWise(coor[i]) != reversed ) coor[i].reverse();	// inner rings
+		isClockWise(coor[i]) !== reversed && coor[i].reverse();	// inner rings
 	}
 	 return pol(coor, poly.properties);
 }
